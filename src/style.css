@@ -1,0 +1,33 @@
+html {
+   font-size: 62.5%;
+}
+
+* {
+   padding: 0;
+   margin: 0;
+   box-sizing: border-box;
+}
+
+body {
+   background: #F6F6F6;
+   font-size: 1.6rem;
+   height: 100dvh;
+}
+
+.main-container {
+   display: flex;
+   align-items: stretch;
+   height: 100%;
+}
+
+.project-section {
+   width: max(25vw, 200px);
+   background: cyan;
+   align-self: stretch;
+}
+
+header h2{
+   text-align: center;
+   padding: 2rem 0;
+   color: #0181FC;
+}
