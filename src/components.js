@@ -19,3 +19,7 @@ function displayProject() {
 }
 
 displayProject();
+
+function displayProjectTodo() {
+   
+}
