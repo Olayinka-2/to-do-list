@@ -1,4 +1,6 @@
-const allProjects = [];
+import { compareAsc, format } from "date-fns";
+
+export const allProjects = [];
 const allTodos = [];
 
 class TodoItem {
@@ -12,7 +14,7 @@ class TodoItem {
 
 class Project {
    constructor(name) {
-      this.date = Date.now();
+      this.date = format(new Date(2014, 1, 11), "yyyy-MM-dd");
       this.name = name;
       this.todos = [];
    }
@@ -21,7 +23,6 @@ class Project {
 function createProject(name) {
    const newProject = new Project(name);
    allProjects.push(newProject);
-   console.log(newProject);
 }
 
 function createTodo(title, description, dueDate, projectName) {
@@ -45,7 +46,6 @@ function searchTodo(newTodo) {
    if(allProjects.length < 1) {
       let Home = createProject('Home');
       allProjects[0].todos.push(newTodo); 
-      console.log('Home created')
    } else if(allProjects.length > 0) {
       if(index !== -1 || index !== undefined) {
          allProjects[index]['todos'].push(newTodo);
@@ -57,6 +57,6 @@ function searchTodo(newTodo) {
 }
 
 
-// createProject('Home');
+createProject('Home');
 createTodo('Cook', 'I am coming', Date.now(), 'Pro');
-console.log(allProjects);
+console.log(allProjects[0].date);
