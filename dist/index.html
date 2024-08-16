@@ -3,20 +3,66 @@
 <head>
    <meta charset="UTF-8">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>Document</title>
+   <title>Todo List</title>
    <script src="./index.js"></script>
-<script defer src="bundle63bd75079381b00da5b2.js"></script></head>
+   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+   <style>
+      .material-symbols-outlined {
+        font-variation-settings:
+        'FILL' 0,
+        'wght' 400,
+        'GRAD' 0,
+        'opsz' 24
+      }
+      </style>
+<script defer src="bundleef7706c9413af8ce944f.js"></script></head>
 <body> 
+   
+   <header>
+      <h2>Todo App</h2>
+   </header>
    <div class="main-container">
-      <aside class="project-section">
 
+      <aside class="project-section">
+         <div class="project-header">
+            <span class="material-symbols-outlined">
+               inventory_2
+               </span>
+            <h2>Projects</h2>
+         </div>
+         <p class="cta">Add Item</p>
+
+         <div class="project-list">
+            <div class="project">
+               <div class="box-point"></div>
+               <div> Home</div>
+            </div>
+            <div class="project">
+               <div class="box-point"></div>
+               <div> Home</div>
+            </div>
+            <div class="project">
+               <div class="box-point"></div>
+               <div> Home</div>
+            </div>
+         </div>
       </aside>
-      <section>
-         <header>
-            <h2>Todo List App</h2>
-         </header>
+
+      <section  class="todo-section">
+         <h2>Todo List App</h2>
+         <section class="todo-container">
+            <div class="todo-card">
+               <p>Name of todo</p>
+               <button class="push">Details</button>
+               <p>Date</p>
+               <p>Edit</p>
+               <p>Delete</p>
+            </div>
+            
+         </section>
       </section>
    </div>
+   
    
 </body>
 </html>
