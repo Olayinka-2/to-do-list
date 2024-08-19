@@ -25,7 +25,7 @@ export function createProject(name) {
    allProjects.push(newProject);
 }
 
-function createTodo(title, description, dueDate, projectName) {
+export function createTodo(title, description, dueDate, projectName) {
    const newTodo = new TodoItem(title, description, dueDate, projectName);
 
    allTodos.push(newTodo);

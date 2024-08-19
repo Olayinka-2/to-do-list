@@ -1,9 +1,32 @@
-import {allProjects, createProject} from './script.js';
+import {allProjects, createProject, createTodo} from './script.js';
 
 const projectList = document.querySelector('.project-list');
 const todoContainer = document.querySelector('.todo-container');
 const addProjectDiv = document.querySelector('.addItem');
 const addProjectBtn = document.querySelector('.cta');
+const addTodoItem = document.querySelector('.addTodoItem');
+const itemDialog = document.querySelector('.itemDialog');
+const addItemToProject = document.querySelector('.addItemToProject');
+const closeDialog = document.querySelector('.closeDialog');
+
+addTodoItem.addEventListener('click', event => {
+   itemDialog.showModal();
+   closeDialog.addEventListener('click', () => {
+      itemDialog.close();
+   })
+});
+
+addItemToProject.addEventListener('click', event => {
+   const title = document.querySelector('#title').value;
+   const dueDate = document.querySelector('#dueDate').value;
+   const itemProjectName = document.querySelector('#itemProjectName').value;
+   const description = document.querySelector('#description').value;
+
+   if(title !== "" && dueDate !== "") {
+      createTodo(title, description, dueDate, itemProjectName);
+      itemDialog.close();
+   }
+});
 
 addProjectBtn.addEventListener("click", event => {
    const projectForm = document.querySelector('.project-form');
@@ -61,6 +84,6 @@ function displayProjectTodo(element) {
 
 displayProjectTodo(allProjects[0]);
 
-allProjects.forEach(project => {
-   project.addEven
-});
+// allProjects.forEach(project => {
+//    project.addEven
+// });
