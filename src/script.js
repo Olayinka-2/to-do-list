@@ -20,7 +20,7 @@ class Project {
    }
 }
 
-function createProject(name) {
+export function createProject(name) {
    const newProject = new Project(name);
    allProjects.push(newProject);
 }
@@ -58,5 +58,5 @@ function searchTodo(newTodo) {
 
 
 createProject('Home');
-createTodo('Cook', 'I am coming', Date.now(), 'Pro');
-console.log(allProjects[0].date);
+createTodo('Cook', 'I am coming', format(new Date(), 'yyyy-MM-dd'), 'Pro');
+console.log(allProjects[0]);
