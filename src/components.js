@@ -43,13 +43,13 @@ addProjectBtn.addEventListener("click", event => {
 
 
 
-function displayProject() {
+export function displayProject() {
    allProjects.forEach(project => {
       const projectDiv = document.createElement('div');
       const boxPoint = document.createElement('div');
       const projectName = document.createElement('div');
 
-      projectDiv.classList.add('project');
+      projectDiv.classList.add('project', project['name']);
       boxPoint.classList.add('box-point');
       projectName.textContent = project['name'];
 
@@ -59,31 +59,44 @@ function displayProject() {
    });
 }
 
-displayProject();
+// displayProject();
 
-function displayProjectTodo(element) {
-   const todoCard = document.createElement('div');
-   const titleParagraph = document.createElement('p');
-   const dateParagraph = document.createElement('p');
-   const editParagraph = document.createElement('p');
-   const detailsBtn = document.createElement('button');
-   const deleteBtn = document.createElement('button');
-
-   titleParagraph.textContent = element.title;
-   dateParagraph.textContent = element.dueDate;
-   editParagraph.textContent = 'Edit';
-   detailsBtn.textContent = "Details";
-   deleteBtn.textContent = 'Delete';
-
-   todoCard.classList.add('todo-card');
-   detailsBtn.classList.add('push');
-
-   todoCard.append(titleParagraph, detailsBtn, dateParagraph, editParagraph, deleteBtn);
-   todoContainer.appendChild(todoCard);
+export function displayProjectTodo(element) {
+   element['todos'].forEach((elements) => {
+      const todoCard = document.createElement('div');
+      const titleParagraph = document.createElement('p');
+      const dateParagraph = document.createElement('p');
+      const editParagraph = document.createElement('p');
+      const detailsBtn = document.createElement('button');
+      const deleteBtn = document.createElement('button');
+   
+      titleParagraph.textContent = elements.title;
+      dateParagraph.textContent = elements.dueDate;
+      editParagraph.textContent = 'Edit';
+      detailsBtn.textContent = "Details";
+      deleteBtn.textContent = 'Delete';
+   
+      todoCard.classList.add('todo-card');
+      detailsBtn.classList.add('push');
+   
+      todoCard.append(titleParagraph, detailsBtn, dateParagraph, editParagraph, deleteBtn);
+      console.log()
+      todoContainer.appendChild(todoCard);
+   });
 }
 
-displayProjectTodo(allProjects[0]);
 
-// allProjects.forEach(project => {
-//    project.addEven
-// });
+projectList.addEventListener('click', event => {
+   let projectTarget = event.target;
+   console.log(projectTarget);
+   let index = -1
+
+   allProjects.forEach((project) => {
+      index = allProjects.findIndex(project => project.name == projectTarget.textContent);
+      console.log(index)
+      if(projectTarget.className.includes(project.name)) {
+         todoContainer.innerHTML = "";
+         displayProjectTodo(allProjects[index]);
+      }
+   })
+});

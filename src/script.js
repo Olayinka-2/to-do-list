@@ -59,4 +59,5 @@ function searchTodo(newTodo) {
 
 createProject('Home');
 createTodo('Cook', 'I am coming', format(new Date(), 'yyyy-MM-dd'), 'Pro');
-console.log(allProjects[0]);
+createTodo('Cooks', 'I am comings', format(new Date(), 'yyyy-MM-dd'), 'Pro');
+// console.log(allProjects[0]);
