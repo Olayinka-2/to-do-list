@@ -44,6 +44,7 @@ addProjectBtn.addEventListener("click", event => {
 
 
 export function displayProject() {
+   projectList.innerHTML = "";
    allProjects.forEach(project => {
       const projectDiv = document.createElement('div');
       const boxPoint = document.createElement('div');
