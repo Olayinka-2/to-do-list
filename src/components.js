@@ -93,9 +93,8 @@ export function displayProject() {
       const projectDiv = document.createElement('div');
       const boxPoint = document.createElement('div');
       const projectName = document.createElement('div');
-
-      projectDiv.classList.add('project', project['name']);
       boxPoint.classList.add('box-point');
+      projectDiv.classList.add('project', project['name']);
       projectName.textContent = project['name'];
 
       projectDiv.append(boxPoint, projectName);

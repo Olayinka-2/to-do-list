@@ -51,6 +51,13 @@ aside .project-header {
 
 .cta {
    margin-top: 1.5rem;
+   background-color: #0181FC;
+   font-weight: bold;
+   border: none;
+}
+
+.cta:hover {
+   border: none;
 }
 
 .project-list {
@@ -112,4 +119,21 @@ aside .project-header {
 
 .push {
    margin-left: auto;
+}
+
+button {
+   padding: .75rem 2rem;
+   border: none;
+   border-radius: 1rem;
+   background-color: white;
+   border: 1px solid white;
+}
+
+button:hover {
+   border: 1px solid black;
+   cursor: pointer;
+}
+
+.itemDialog {
+   position: absolute;
 }
