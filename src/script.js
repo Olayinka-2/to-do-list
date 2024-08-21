@@ -21,7 +21,7 @@ class Project {
 }
 
 let Home = new Project('Home');
-export const allProjects = JSON.parse(localStorage.getItem('allProjects')) || [Home];
+export const allProjects = JSON.parse(localStorage.getItem('allProjects')) || [ Home ];
 
 export function createProject(name) {
    const newProject = new Project(name);
@@ -57,7 +57,7 @@ function searchTodo(newTodo) {
    updateLocalStorage();
 }
 
-function updateLocalStorage() {
+export function updateLocalStorage() {
    localStorage.setItem('allProjects', JSON.stringify(allProjects));
 }
 
