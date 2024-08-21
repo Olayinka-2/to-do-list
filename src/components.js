@@ -81,7 +81,6 @@ export function displayProjectTodo(element) {
       detailsBtn.classList.add('push');
    
       todoCard.append(titleParagraph, detailsBtn, dateParagraph, editParagraph, deleteBtn);
-      console.log()
       todoContainer.appendChild(todoCard);
    });
 }
@@ -89,12 +88,10 @@ export function displayProjectTodo(element) {
 
 projectList.addEventListener('click', event => {
    let projectTarget = event.target;
-   console.log(projectTarget);
    let index = -1
 
    allProjects.forEach((project) => {
       index = allProjects.findIndex(project => project.name == projectTarget.textContent);
-      console.log(index)
       if(projectTarget.className.includes(project.name)) {
          todoContainer.innerHTML = "";
          displayProjectTodo(allProjects[index]);

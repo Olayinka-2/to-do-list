@@ -1,7 +1,7 @@
 import { compareAsc, format } from "date-fns";
 
-export const allProjects = [];
 const allTodos = [];
+
 
 class TodoItem {
    constructor(title, description, dueDate, projectName) {
@@ -20,9 +20,13 @@ class Project {
    }
 }
 
+let Home = new Project('Home');
+export const allProjects = JSON.parse(localStorage.getItem('allProjects')) || [Home];
+
 export function createProject(name) {
    const newProject = new Project(name);
    allProjects.push(newProject);
+   updateLocalStorage();
 }
 
 export function createTodo(title, description, dueDate, projectName) {
@@ -37,7 +41,6 @@ function searchTodo(newTodo) {
    let index = -1;
 
    index = allProjects.findIndex(project => project.name == newTodo.projectName);
-   console.log(index + " hi");
 
    if(allProjects.length < 1) {
       let Home = createProject('Home');
@@ -51,17 +54,10 @@ function searchTodo(newTodo) {
          allProjects[0].todos.push(newTodo); 
       }
    }
-   
+   updateLocalStorage();
 }
 
+function updateLocalStorage() {
+   localStorage.setItem('allProjects', JSON.stringify(allProjects));
+}
 
-createProject('Home');
-// createProject('Holi');
-// createProject('Holisss');
-
-createTodo('Cook', 'I am coming', format(new Date(), 'yyyy-MM-dd'), 'Pro');
-// createTodo('Cooksssss', 'I am comings', format(new Date(), 'yyyy-MM-dd'), 'Holi');
-// createTodo('man', 'I am comings', format(new Date(), 'yyyy-MM-dd'), 'Holisss');
-// createTodo('man', 'I am comings', format(new Date(), 'yyyy-MM-dd'), 'Holisss');
-// console.log(allProjects[0]['todos'][0].projectName);
-// console.log(allProjects);
