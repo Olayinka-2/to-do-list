@@ -8,6 +8,7 @@ const addTodoItem = document.querySelector('.addTodoItem');
 const itemDialog = document.querySelector('.itemDialog');
 const addItemToProject = document.querySelector('.addItemToProject');
 const closeDialog = document.querySelector('.closeDialog');
+const todoName = document.querySelector('.todoName');
 
 let isEditing = false;
 let currentTodo = null;
@@ -89,21 +90,32 @@ addProjectBtn.addEventListener("click", event => {
 
 export function displayProject() {
    projectList.innerHTML = "";
-   allProjects.forEach(project => {
+   allProjects.forEach((project, projectIndex) => {
       const projectDiv = document.createElement('div');
       const boxPoint = document.createElement('div');
       const projectName = document.createElement('div');
+      const deleteIcon = document.createElement('div');
       boxPoint.classList.add('box-point');
       projectDiv.classList.add('project', project['name']);
       projectName.textContent = project['name'];
 
-      projectDiv.append(boxPoint, projectName);
+      deleteIcon.classList.add('deleteIcon');
+      deleteIcon.innerHTML = `<span class="material-symbols-outlined">
+      delete
+      </span>`;
+
+
+      projectDiv.append(boxPoint, projectName, deleteIcon);
 
       projectList.appendChild(projectDiv);
+
+      deleteIcon.addEventListener('click', () => {
+         allProjects.splice(projectIndex, 1);
+         updateLocalStorage();
+         projectDiv.remove();
+      })
    });
 }
-
-// displayProject();
 
 export function displayProjectTodo(element) {
    element['todos'].forEach((elements, todoIndex) => {
@@ -137,8 +149,21 @@ export function displayProjectTodo(element) {
       editButton.addEventListener('click', () => {
          setupEditTodoDialog(elements, element);
       });
+
+      detailsBtn.addEventListener('click', () => {
+         const detailsDialog = document.querySelector('.detailsDialog');
+
+         // Mock data for demonstration
+         document.querySelector('#detailsTitle').value = elements.title;
+         document.querySelector('#detailsDescription').value = elements.description;
+         document.querySelector('#detailsDueDate').value = elements.dueDate;
+         document.querySelector('#detailsProjectName').value = element.name;
+
+         detailsDialog.showModal();
+      });
       
    });
+   todoName.textContent = element.name + " Project";
 }
 
 
