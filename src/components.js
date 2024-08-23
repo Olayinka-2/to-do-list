@@ -113,6 +113,7 @@ export function displayProject() {
          allProjects.splice(projectIndex, 1);
          updateLocalStorage();
          projectDiv.remove();
+         todoContainer.innerHTML = "";
       })
    });
 }
