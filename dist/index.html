@@ -15,7 +15,7 @@
         'opsz' 24
       }
       </style>
-<script defer src="bundle11f73dc986883562ae17.js"></script></head>
+<script defer src="bundlead3ebcbdc04a1e27e4aa.js"></script></head>
 <body> 
    
    <header>
@@ -31,9 +31,9 @@
             <h2>Projects</h2>
          </div>
          <div class="addItem">
-            <button class="cta">Add Item</button>
+            <button class="cta">Add project</button>
             <form action="#" class="project-form">
-               <div>
+               <div class="cta-div">
                   <input type="name" name="projectName" id="projectName">
                   <button class="projectBtn">Add Project</button>
                </div>
@@ -53,15 +53,17 @@
             <div class="project">
                <div class="box-point"></div>
                <div> Home</div>
+               <span class="material-symbols-outlined">
+                  delete
+                  </span>
             </div>
          </div>
       </aside>
 
       <section  class="todo-section">
-         <h2>Todo List App</h2>
+         <h2 class="todoName">Todo List App</h2>
          <button class="addTodoItem">Add item</button>
          <section class="todo-container">
-            
             
          </section>
       </section>
@@ -93,7 +95,28 @@
          </div>
       </form>
    </dialog>
-   
+
+   <dialog class="detailsDialog">
+      <form method="dialog" class="detailsForm">
+         <h3>Todo Details</h3>
+
+         <label for="detailsTitle">Title:</label>
+         <input type="text" id="detailsTitle" name="detailsTitle" readonly>
+
+         <label for="detailsDescription">Description:</label>
+         <textarea id="detailsDescription" name="detailsDescription" readonly></textarea>
+
+         <label for="detailsDueDate">Due Date:</label>
+         <input type="date" id="detailsDueDate" name="detailsDueDate" readonly>
+
+         <label for="detailsProjectName">Project Name:</label>
+         <input type="text" id="detailsProjectName" name="detailsProjectName" readonly>
+
+         <menu>
+            <button value="cancel">Close</button>
+         </menu>
+      </form>
+   </dialog>
    
 </body>
 </html>
